@@ -25,16 +25,16 @@ class ScratchLinkWebSocket {
     open () {
         switch (this._type) {
         case 'BLE':
-            this._ws = new WebSocket('wss://127.0.0.1:20111/openblock/ble');
+            this._ws = new WebSocket('wss://127.0.0.1:20111/WiinBlock/ble');
             break;
         case 'BT':
-            this._ws = new WebSocket('wss://127.0.0.1:20111/openblock/bt');
+            this._ws = new WebSocket('wss://127.0.0.1:20111/WiinBlock/bt');
             break;
         case 'SERIALPORT':
-            this._ws = new WebSocket('wss://127.0.0.1:20111/openblock/serialport');
+            this._ws = new WebSocket('wss://127.0.0.1:20111/WiinBlock/serialport');
             break;
         default:
-            throw new Error(`Unknown OpenblockLink socket Type: ${this._type}`);
+            throw new Error(`Unknown WiinBlockLink socket Type: ${this._type}`);
         }
 
         if (this._onOpen && this._onClose && this._onError && this._handleMessage) {

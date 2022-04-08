@@ -98,12 +98,12 @@ const DataType = {
 };
 
 /**
- * Manage communication with a Arduino Esp8266 peripheral over a OpenBlock Link client socket.
+ * Manage communication with a Arduino Esp8266 peripheral over a WiinBlock Link client socket.
  */
 class arduinoEsp8266 extends EspPeripheral{
     /**
      * Construct a Arduino communication object.
-     * @param {Runtime} runtime - the OpenBlock runtime
+     * @param {Runtime} runtime - the WiinBlock runtime
      * @param {string} deviceId - the id of the extension
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
@@ -113,9 +113,9 @@ class arduinoEsp8266 extends EspPeripheral{
 }
 
 /**
- * OpenBlock blocks to interact with a Arduino Esp8266 peripheral.
+ * WiinBlock blocks to interact with a Arduino Esp8266 peripheral.
  */
-class OpenBlockArduinoEsp8266Device {
+class WiinBlockArduinoEsp8266Device {
     /**
      * @return {string} - the ID of this extension.
      */
@@ -576,19 +576,19 @@ class OpenBlockArduinoEsp8266Device {
 
     /**
      * Construct a set of Arduino blocks.
-     * @param {Runtime} runtime - the OpenBlock runtime.
+     * @param {Runtime} runtime - the WiinBlock runtime.
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
     constructor (runtime, originalDeviceId) {
         /**
-         * The OpenBlock runtime.
+         * The WiinBlock runtime.
          * @type {Runtime}
          */
         this.runtime = runtime;
 
         // Create a new Arduino esp8266 peripheral instance
         this._peripheral = new arduinoEsp8266(this.runtime,
-            OpenBlockArduinoEsp8266Device.DEVICE_ID, originalDeviceId);
+            WiinBlockArduinoEsp8266Device.DEVICE_ID, originalDeviceId);
     }
 
     /**
@@ -815,7 +815,7 @@ class OpenBlockArduinoEsp8266Device {
                         arguments: {
                             VALUE: {
                                 type: ArgumentType.STRING,
-                                defaultValue: 'Hello OpenBlock'
+                                defaultValue: 'Hello WiinBlock'
                             },
                             EOL: {
                                 type: ArgumentType.STRING,
@@ -1025,4 +1025,4 @@ class OpenBlockArduinoEsp8266Device {
     }
 }
 
-module.exports = OpenBlockArduinoEsp8266Device;
+module.exports = WiinBlockArduinoEsp8266Device;

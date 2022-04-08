@@ -101,12 +101,12 @@ const DataType = {
 };
 
 /**
- * Manage communication with a Arduino Leonardo peripheral over a OpenBlock Link client socket.
+ * Manage communication with a Arduino Leonardo peripheral over a WiinBlock Link client socket.
  */
 class ArduinoLeonardo extends ArduinoPeripheral{
     /**
      * Construct a Arduino communication object.
-     * @param {Runtime} runtime - the OpenBlock runtime
+     * @param {Runtime} runtime - the WiinBlock runtime
      * @param {string} deviceId - the id of the extension
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
@@ -116,9 +116,9 @@ class ArduinoLeonardo extends ArduinoPeripheral{
 }
 
 /**
- * OpenBlock blocks to interact with a Arduino Leonardo peripheral.
+ * WiinBlock blocks to interact with a Arduino Leonardo peripheral.
  */
-class OpenBlockArduinoLeonardoDevice {
+class WiinBlockArduinoLeonardoDevice {
     /**
      * @return {string} - the ID of this extension.
      */
@@ -462,19 +462,19 @@ class OpenBlockArduinoLeonardoDevice {
 
     /**
      * Construct a set of Arduino blocks.
-     * @param {Runtime} runtime - the OpenBlock runtime.
+     * @param {Runtime} runtime - the WiinBlock runtime.
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
     constructor (runtime, originalDeviceId) {
         /**
-         * The OpenBlock runtime.
+         * The WiinBlock runtime.
          * @type {Runtime}
          */
         this.runtime = runtime;
 
         // Create a new Arduino leonardo peripheral instance
         this._peripheral = new ArduinoLeonardo(this.runtime,
-            OpenBlockArduinoLeonardoDevice.DEVICE_ID, originalDeviceId);
+            WiinBlockArduinoLeonardoDevice.DEVICE_ID, originalDeviceId);
     }
 
     /**
@@ -720,7 +720,7 @@ class OpenBlockArduinoLeonardoDevice {
                         arguments: {
                             VALUE: {
                                 type: ArgumentType.STRING,
-                                defaultValue: 'Hello OpenBlock'
+                                defaultValue: 'Hello WiinBlock'
                             },
                             EOL: {
                                 type: ArgumentType.STRING,
@@ -952,4 +952,4 @@ class OpenBlockArduinoLeonardoDevice {
     }
 }
 
-module.exports = OpenBlockArduinoLeonardoDevice;
+module.exports = WiinBlockArduinoLeonardoDevice;

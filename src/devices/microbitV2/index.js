@@ -87,12 +87,12 @@ const Level = {
 };
 
 /**
- * Manage communication with a Microbit V2 peripheral over a OpenBlock Link client socket.
+ * Manage communication with a Microbit V2 peripheral over a WiinBlock Link client socket.
  */
 class MicrobitV2 extends MicrobitPeripheral{
     /**
      * Construct a Microbit communication object.
-     * @param {Runtime} runtime - the OpenBlock runtime
+     * @param {Runtime} runtime - the WiinBlock runtime
      * @param {string} deviceId - the id of the deivce
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
@@ -102,9 +102,9 @@ class MicrobitV2 extends MicrobitPeripheral{
 }
 
 /**
- * OpenBlock blocks to interact with a Microbit V2 peripheral.
+ * WiinBlock blocks to interact with a Microbit V2 peripheral.
  */
-class OpenBlockMicrobitV2Device {
+class WiinBlockMicrobitV2Device {
     /**
      * @return {string} - the ID of this deivce.
      */
@@ -457,17 +457,17 @@ class OpenBlockMicrobitV2Device {
 
     /**
      * Construct a set of Microbit V2 blocks.
-     * @param {Runtime} runtime - the OpenBlock runtime.
+     * @param {Runtime} runtime - the WiinBlock runtime.
      */
     constructor (runtime) {
         /**
-         * The OpenBlock runtime.
+         * The WiinBlock runtime.
          * @type {Runtime}
          */
         this.runtime = runtime;
 
         // Create a new Microbit V2 peripheral instance
-        this._peripheral = new MicrobitV2(this.runtime, OpenBlockMicrobitV2Device.DEVICE_ID);
+        this._peripheral = new MicrobitV2(this.runtime, WiinBlockMicrobitV2Device.DEVICE_ID);
     }
 
     /**
@@ -650,7 +650,7 @@ class OpenBlockMicrobitV2Device {
                     arguments: {
                         TEXT: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'Hello OpenBlock'
+                            defaultValue: 'Hello WiinBlock'
                         }
                     }
                 },
@@ -665,7 +665,7 @@ class OpenBlockMicrobitV2Device {
                     arguments: {
                         TEXT: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'Hello OpenBlock'
+                            defaultValue: 'Hello WiinBlock'
                         }
                     }
                 },
@@ -927,7 +927,7 @@ class OpenBlockMicrobitV2Device {
                     arguments: {
                         TEXT: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'Hello OpenBlock'
+                            defaultValue: 'Hello WiinBlock'
                         }
                     }
                 },
@@ -987,7 +987,7 @@ class OpenBlockMicrobitV2Device {
                     arguments: {
                         TEXT: {
                             type: ArgumentType.STRING,
-                            defaultValue: 'Hello OpenBlock'
+                            defaultValue: 'Hello WiinBlock'
                         }
                     }
                 }
@@ -998,4 +998,4 @@ class OpenBlockMicrobitV2Device {
     }
 }
 
-module.exports = OpenBlockMicrobitV2Device;
+module.exports = WiinBlockMicrobitV2Device;

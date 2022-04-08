@@ -98,12 +98,12 @@ const DataType = {
 };
 
 /**
- * Manage communication with a Arduino Leonardo peripheral over a OpenBlock Link client socket.
+ * Manage communication with a Arduino Leonardo peripheral over a WiinBlock Link client socket.
  */
 class MakeyMakey extends ArduinoPeripheral{
     /**
      * Construct a Arduino communication object.
-     * @param {Runtime} runtime - the OpenBlock runtime
+     * @param {Runtime} runtime - the WiinBlock runtime
      * @param {string} deviceId - the id of the extension
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
@@ -113,9 +113,9 @@ class MakeyMakey extends ArduinoPeripheral{
 }
 
 /**
- * OpenBlock blocks to interact with a Arduino Leonardo peripheral.
+ * WiinBlock blocks to interact with a Arduino Leonardo peripheral.
  */
-class OpenBlockMakeyMakeyDevice {
+class WiinBlockMakeyMakeyDevice {
     /**
      * @return {string} - the ID of this extension.
      */
@@ -432,18 +432,18 @@ class OpenBlockMakeyMakeyDevice {
 
     /**
      * Construct a set of Arduino blocks.
-     * @param {Runtime} runtime - the OpenBlock runtime.
+     * @param {Runtime} runtime - the WiinBlock runtime.
      * @param {string} originalDeviceId - the original id of the peripheral, like xxx_arduinoUno
      */
     constructor (runtime, originalDeviceId) {
         /**
-         * The OpenBlock runtime.
+         * The WiinBlock runtime.
          * @type {Runtime}
          */
         this.runtime = runtime;
 
         // Create a new Arduino makeymakey peripheral instance
-        this._peripheral = new MakeyMakey(this.runtime, OpenBlockMakeyMakeyDevice.DEVICE_ID, originalDeviceId);
+        this._peripheral = new MakeyMakey(this.runtime, WiinBlockMakeyMakeyDevice.DEVICE_ID, originalDeviceId);
     }
 
     /**
@@ -692,7 +692,7 @@ class OpenBlockMakeyMakeyDevice {
                         arguments: {
                             VALUE: {
                                 type: ArgumentType.STRING,
-                                defaultValue: 'Hello OpenBlock'
+                                defaultValue: 'Hello WiinBlock'
                             },
                             EOL: {
                                 type: ArgumentType.STRING,
@@ -912,4 +912,4 @@ class OpenBlockMakeyMakeyDevice {
     }
 }
 
-module.exports = OpenBlockMakeyMakeyDevice;
+module.exports = WiinBlockMakeyMakeyDevice;
